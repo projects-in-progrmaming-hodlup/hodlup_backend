@@ -12,7 +12,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from twilio.rest import Client
-from models import Alert
+from backend.models import Alert
 
 # Load environment variables
 load_dotenv()
