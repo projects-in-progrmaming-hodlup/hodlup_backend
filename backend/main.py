@@ -23,6 +23,7 @@ app = FastAPI()
 # CORS configuration
 origins = [
     "http://localhost:3000",  # React app
+    "https://hodlup-frontend-147516047876.us-central1.run.app", # frontend URL 
 ]
 app.add_middleware(
     CORSMiddleware,
