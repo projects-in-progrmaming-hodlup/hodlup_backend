@@ -293,7 +293,7 @@ def check_alerts_and_notify():
             # Check alerts for this cryptocurrency
             alerts = db.query(Alert).filter_by(crypto_id=db_crypto.crypto_id).all()
             for alert in alerts:
-                if db_crypto.hourly_price >= alert.threshold_price or db_crypto.hourly_price <= alert.lower_threshold_price :
+                if (alert.threshold_price and db_crypto.hourly_price >= alert.threshold_price) or (alert.lower_threshold_price and db_crypto.hourly_price <= alert.lower_threshold_price) :
                     if alert.notification_method == "Phone Call":
                         make_call(alert.phone_number)
                     elif alert.notification_method == "Email":
